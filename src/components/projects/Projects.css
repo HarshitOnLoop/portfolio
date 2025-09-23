@@ -1,0 +1,338 @@
+.flip-front img{
+  width: 117%;
+  height: auto;
+margin-top: -95px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+}
+.projetsection{
+  padding-top: 30px;
+
+}
+/*proj card*/
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 80px 100px;
+  padding: 0 80px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 280px;
+  height: 320px;
+  perspective: 1000px;
+  margin: auto;
+}
+
+.flip-title {
+  font-family: poppins, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s, box-shadow 0.3s, scale 0.3s;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.25),
+    0 6px 6px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg) scale(1.05);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35),
+    0 8px 10px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  padding: 20px;
+  color: #fff;
+}
+/* 🎨 Solid colors for cards */
+#card1 .flip-front { background: #222; } /* Green */
+#card2 .flip-front { background: #222; } /* Red/Pink */
+#card3 .flip-front { background: #222; } /* Yellow */
+#card4 .flip-front { background: #222; } /* Magenta */
+#card5 .flip-front { background: #222; } /* Purple */
+#card6 .flip-front { background: #222; } /* Orange/Red */
+#card7 .flip-front { background: #222; } /* Teal */
+#card8 .flip-front { background: #222; } /* Pink/Red */
+#card9 .flip-front { background: #222; } /* Pink/Red */
+
+
+/* Back side */
+.flip-back {
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background: #222;
+  transform: rotateY(180deg);
+  color: #fff;
+}
+
+/* 🟣 3D Pink Buttons */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-group button {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #ff4da6;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 5px 0 #b30059, 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.btn-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 #b30059, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn-group button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #b30059, 0 4px 10px rgba(0,0,0,0.2);
+}
+    
+.projetsection {
+    position: relative; /* for absolute positioning of laptop */
+    margin-top: -16px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+    /* Grid background */
+    background-color: #01943B; /* fallback color */
+    background-image:
+        repeating-linear-gradient(
+            0deg,               /* horizontal lines */
+            rgba(255,255,255,0.2), 
+            rgba(255,255,255,0.2) 1px,
+            transparent 1px,
+            transparent 40px      /* gap between lines */
+        ),
+        repeating-linear-gradient(
+            90deg,              /* vertical lines */
+            rgba(255,255,255,0.2),
+            rgba(255,255,255,0.2) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+    
+    padding: 20px; /* optional, for content inside */
+    overflow: hidden; /* keep laptop inside border if rotated */
+}
+
+/* Laptop Image */
+.projetsection .laptop {
+    position: absolute;
+    top: -290px;      /* distance from top */
+    right: -140px;    /* distance from right */
+    width: 600px;   /* adjust size */
+    transform: rotate(-18deg); /* rotate laptop */
+    z-index: 10;    /* make sure it is above the grid */
+}
+.projects {
+  margin-bottom: 40px;
+}
+.projects h1{
+  font-family: "Permanent Marker", cursive;
+  font-weight: 100;
+  color: rgb(0, 0, 0);
+text-transform: uppercase;
+  font-size: 110px;
+margin: 0;
+}
+
+
+
+.paper {
+  --paper-dark: #ffdd00;
+  --paper-color: #ffdd00;
+
+  position: relative;
+  display: flex;
+  align-items: center;   /* center vertically */
+  padding-left: 80px;   /* space for pin only */
+width: 700px;
+height: 150px;
+  background: linear-gradient(135deg, var(--paper-dark) 30%, var(--paper-color));
+  transform: rotate(4deg);
+  transform-origin: top left;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),    /* big soft shadow */
+    0 3px 5px rgba(0, 0, 0, 0.2),     /* mid shadow */
+    0 1px 2px rgba(0, 0, 0, 0.4);     /* crisp edge shadow */
+
+}
+
+.pin {
+  --pin-color: #d02627;
+  --pin-dark: #9e0608;
+  --pin-light: #fc7e7d;
+
+  position: absolute;
+  left: 20px;
+  width: 60px;
+  height: 50px;
+}
+
+.shadow {
+  position: absolute;
+  top: 18px;
+  left: -8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: radial-gradient(var(--paper-shadow), 20%, rgba(201, 191, 141, 0));
+}
+
+.metal {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
+  border-radius: 0 0 30% 30%;
+  transform: rotate(50deg);
+  transform-origin: bottom left;
+  top: 15px;
+  border-bottom: 1px solid #808080;
+}
+
+.bottom-circle {
+  position: absolute;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--pin-color);
+  background: radial-gradient(
+    circle at bottom right,
+    var(--pin-light),
+    25%,
+    var(--pin-dark),
+    90%,
+    var(--pin-color)
+  );
+}
+
+/* Barrel */
+.bottom-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 20px;
+  height: 30px;
+  transform: rotate(55deg);
+  transform-origin: 100% 100%;
+  border-radius: 0 0 40% 40%;
+  background: linear-gradient(
+    to right,
+    var(--pin-dark),
+    30%,
+    var(--pin-color),
+    90%,
+    var(--pin-light)
+  );
+}
+
+/* Top circle */
+.bottom-circle::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at right,
+    var(--pin-light),
+    30%,
+    var(--pin-color),
+    var(--pin-dark) 80%
+  );
+}
+#card3 .flip-front { box-shadow: none;} /* Yellow */
+.blankspace {
+  height: 800px; }
+ .contact {
+      background-color: #0084ff;
+      width: 100%;                  /* full width */
+      height: 1040px;                /* adjust as needed */
+      border-top-left-radius: 50% ;  /* smooth curve */
+      border-top-right-radius: 50% ; /* smooth curve */
+      position: relative;
+      z-index: 100;
+      margin-top: -830px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+ 
+}
+
+@media screen and (max-width: 768px) {
+
+ .projetsection .laptop { 
+    width: 300px; top: -138px; right: -110px;
+        transform: rotate(-12deg); /* rotate laptop */
+
+ }
+
+ .paper { 
+        width: 250px; 
+        height: 60px;
+         padding-left: 50px; 
+         transform: rotate(2deg); 
+         padding-left: 70px;   
+    }
+   
+     .projects h1 {
+        font-size: 28px;
+    }
+    /* 2 cards per row for tablets and mobiles */
+    .cards-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding-top: 10px;
+          margin: 0 -75px
+
+    }
+    
+
+
+}
+

@@ -1,0 +1,420 @@
+        .what-we-do {
+            background-color: var(--white-text);
+            color: var(--dark-bg);
+            padding: 40px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-top: -100px;
+        
+        }
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 16px;
+}
+    
+.div1 {
+       grid-column: span 3 / span 3;
+    grid-row: span 3 / span 3;
+
+        border-radius: 16px;
+background-color: #0278ff;
+
+}
+
+.div3 {
+       grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 4; /* Changed from 5 to 4 */
+border-radius: 16px;
+background-color: #C8F222;
+      position: relative;
+overflow: hidden;
+}
+
+.div3 h1{
+  color: #006f00;
+  font-family: "Instrument Serif", serif;
+font-size: 80px;
+font-weight: 500;
+text-transform: uppercase;
+padding-left: 20px;
+padding-top: 5px;
+text-decoration: underline 2px solid #005300;
+text-decoration-style: dashed ;
+}
+ 
+.div4 {
+
+    grid-column: span 2 / span 2;
+    grid-row: span 7 / span 7;
+    grid-column-start: 4;
+    grid-row-start: 1;
+/*        border: 2px solid black;*/ 
+     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+border-radius: 16px;
+background-color: #fffff4;
+}
+        /*child div*/
+        #cssportal-grid {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 0;
+	width: 100%;
+	height: 100%;
+
+}
+#cdiv1 {
+	grid-area: 1 / 1 / 2 / 5;
+            border-radius: 16px;
+                position: relative;
+  padding-top: 15px;
+                padding-left: 20px;
+
+}
+
+#cdiv1 h1{
+  padding-bottom: 8px;
+}
+#cdiv2 {
+	grid-area: 1 / 5 / 2 / 7;
+              position: relative;        /* makes child absolute coords relative here */
+  overflow: hidden;          /* hides anything that goes outside */
+text-align: center;
+}
+#cdiv2 img {
+  width: 340px;            
+  height: auto;
+  position: absolute;  
+  left: -4px;
+bottom: 0px;
+padding-right: 100px;
+
+  filter: drop-shadow(5px 0 0 white) 
+  drop-shadow(0 5px 0 white)
+  drop-shadow(-5px 0 0 white) 
+  drop-shadow(0 -5px 0 white);
+
+}
+#intro h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  font-style: normal;
+}
+#intro p {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+font-size: 15px;
+  color: white;
+  line-height: 1.6;
+
+}
+
+/*div 4*/
+.div4 h1 {
+font-family: "Instrument Serif", serif;
+font-size: 80px;
+font-weight: 500;
+text-transform: uppercase;
+padding-left: 10px;
+padding-top: 5px;
+text-decoration: underline 2px solid black;
+text-decoration-style: dashed ;
+}
+ /*skills button*/
+ /* From Uiverse.io by Creatlydev */ 
+.button {
+  cursor: pointer;
+  border: none;
+  background: #ff3232;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-content: center;
+  transition:
+    background 300ms,
+    transform 200ms;
+  font-weight: 600;
+    transform: scale(0.7);  /* 0.6 = 60% of original size */
+
+  }
+
+.button__text {
+  position: absolute;
+  inset: 0;
+  animation: text-rotation 8s linear infinite;
+
+  > span {
+    position: absolute;
+    transform: rotate(calc(19deg * var(--index)));
+    inset: 7px;
+  }
+}
+
+.button__circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: #fff;
+  color: #ff2727;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__icon--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.button:hover {
+  background: #000;
+  transform: scale(1.05);
+}
+
+.button:hover .button__icon {
+  color: #000;
+}
+
+.button:hover .button__icon:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+
+@keyframes text-rotation {
+  to {
+    rotate: 360deg;
+  }
+}
+.skill {
+  display: flex;           /* Make children align horizontally */
+  align-items: center;     /* Vertically center align h1 and button */
+  gap: 2px;        
+  padding-left: 30px;   
+  padding-bottom: 15px;    
+}  
+
+
+/*skills */
+.sall {
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.3); /* shadow on top */
+border-radius: 16px 16px 0 0;
+  position:relative;
+padding: 5px;
+margin-top: -11px;
+color: #feffee;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 40px;
+padding-left: 20px;
+}
+#s1 { background-color: #040000; 
+    box-shadow: none;
+    color: #feffee; /* shadow on top */
+}  /* Red */
+#s2 { background-color: #0080ff;  }  /* Pink */
+#s3 { background-color: #ff0095;color: #feffee; }  /* Purple */
+#s4 { background-color: #2BBD5A; }  /* Indigo */
+#s5 { background-color: #f32121; }  /* Blue */
+#s6 { background-color: #ffc400; }  /* Teal */
+#s7 { background-color: #1D57F6; }  /* Orange */
+#s8 { background-color: #FE4900;
+border-radius: 0 0 16px 16px;
+ }  
+
+
+ 
+#star {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+#star img {
+  width: 80px;
+  height: auto;
+  z-index: 2;
+
+}
+#star h1{
+  z-index: 2;
+}
+.stripe{
+  text-align: center;
+       position: absolute;
+      top: -30px;
+      left: -40px;
+      width: 120%;
+      background-color: #e6007e;  /* dark pink */
+      color: white;
+      font-weight: 600;
+      font-family: "Instrument Serif", serif;
+      font-size: 1rem;
+      text-align: center;
+      transform: rotate(16deg); /* tilt stripe */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 1;
+}
+    .bg-text {
+      position: absolute;
+      inset: 0;
+      font-size: 4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: white;
+      transform: rotate(-20deg);
+      white-space: nowrap;
+      line-height: 1.2;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 40%;
+    }
+/*exp*/
+        .experience-container {
+  position: relative; /* needed for z-index to work */
+  z-index: 10;        /* higher than your background text */
+
+        }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    /* Keep your button style */
+    .exp-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff006e;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.2s ease;
+}
+
+
+    .exp-btn:hover {
+  background: #fff;
+  color: #ff0080;
+  border: 3px solid #ff006e;
+  box-shadow: none;
+
+}
+
+.experience-detail.active p{
+background-color: #0056b3;
+color: white;
+align-content: center;
+font-size: 25px;
+border-radius: 12px;
+border: 1px dashed rgb(0, 0, 0);
+}
+
+
+    .experience-detail {
+      
+      display: none;
+      border: 2px dashed #296c00;
+      border-radius: 10px;
+      padding: 15px;
+      background: #ffe6f0;
+      color: #333;
+      line-height: 1.5;
+      min-height: 80px;
+      width: 80%;
+      margin-top: 10px;
+        margin: 10px auto; /* centers horizontally */
+  text-align: center; /* optional: centers text inside the box */
+  font-family: "Instrument Serif", serif;
+font-weight: 600;
+    }
+
+    .experience-detail.active {
+      display: block;
+    }
+
+
+    /* ============================= */
+/* 📱 Mobile Responsive Styles   */
+/* ============================= */
+
+/* Mobiles (Portrait) */
+@media (max-width: 768px) {
+  .what-we-do {
+    padding: 20px;
+    margin-top: -50px;
+    border-radius: 12px;
+    padding-bottom: 50px;
+  }
+
+    .parent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .div3, .div4 {
+    width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .div3 h1,
+  .div4 h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .sall {
+    font-size: 22px;
+    padding: 5px 10px;
+    text-align: center;
+  }
+
+  .skill {
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .experience-detail {
+    width: 100%;
+    font-size: 16px;
+  }
+
+
+
+
+}
+
+
+
+
