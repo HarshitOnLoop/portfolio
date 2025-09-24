@@ -4,8 +4,9 @@ import "./Skills.css";
 function Skills({ popupContact_open }) {
   const [activeDetail, setActiveDetail] = useState("default");
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const [fade, setFade] = useState(false);
+  const [hoveredBtn, setHoveredBtn] = useState(false); // <-- track hover
 
-  // Quotes + colors
   const quotes = [
     "There’s no place like 127.0.0.1.",
     "Debugging is like being the detective in a crime movie where you are also the murderer.",
@@ -23,10 +24,23 @@ function Skills({ popupContact_open }) {
     "#F94C10", "#f72585", "#3a0ca3", "#4361ee", "#ff6700"
   ];
 
-  // Rotate quote every 5s
+  function getContrastColor(bgColor) {
+    const c = bgColor.substring(1);
+    const rgb = parseInt(c, 16);
+    const r = (rgb >> 16) & 0xff;
+    const g = (rgb >> 8) & 0xff;
+    const b = (rgb >> 0) & 0xff;
+    const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+    return luma > 150 ? "#000" : "#fff";
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setQuoteIndex((prev) => (prev + 1) % quotes.length);
+      setFade(true);
+      setTimeout(() => {
+        setQuoteIndex((prev) => (prev + 1) % quotes.length);
+        setFade(false);
+      }, 250);
     }, 5000);
     return () => clearInterval(interval);
   }, [quotes.length]);
@@ -34,25 +48,23 @@ function Skills({ popupContact_open }) {
   return (
     <section className="what-we-do">
       <div className="parent">
-        {/* === INTRO === */}
+        {/* INTRO */}
         <div className="div1">
           <div id="cssportal-grid">
             <div id="cdiv1">
               <section id="intro">
                 <h1>
                   Hi, I am{" "}
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                      textDecorationThickness: "2px",
-                      textDecorationStyle: "dashed",
-                      textDecorationColor: "rgb(255, 255, 255)",
-                    }}
-                  >
+                  <span style={{
+                    textDecoration: "underline",
+                    textDecorationThickness: "2px",
+                    textDecorationStyle: "dashed",
+                    textDecorationColor: "rgb(255, 255, 255)"
+                  }}>
                     Harshit Sharma
                   </span>
                 </h1>
-                <p>
+                <p className="mhide">
                   I’m a 3rd-year BE student at Chitkara University with a passion
                   for Web Development, SEO, WordPress, and Digital Marketing. I’ve
                   worked on projects like video call apps, event websites, and
@@ -60,6 +72,9 @@ function Skills({ popupContact_open }) {
                   WordPress development and nonprofit fundraising. Currently, I’m
                   learning React JS, C++, and DSA, and I’m excited to apply my
                   skills to create impactful and innovative projects.
+                </p>
+                <p className="phide">
+                  I’m a 3rd-year BE student at Chitkara University, passionate about Web Development, SEO, WordPress, and Digital Marketing. I have experience building apps and websites and am currently learning React JS, C++, and DSA to create impactful projects.
                 </p>
               </section>
             </div>
@@ -69,13 +84,14 @@ function Skills({ popupContact_open }) {
           </div>
         </div>
 
-        {/* === EXPERIENCE === */}
+        {/* EXPERIENCE + QUOTE */}
         <div className="div3">
           <div className="stripe">
-            ......................................................................................That what i have done
+            <p>"It works… ship it!" 🚀</p>
           </div>
           <div className="bg-text">
             <p>EXPERIENCE EXPERIENCE EXPERIENCE EXPERIENCE ...</p>
+            {/* ...repeat as before */}
           </div>
 
           <div id="star">
@@ -96,90 +112,83 @@ function Skills({ popupContact_open }) {
                 <button
                   key={btn.id}
                   className="exp-btn"
-                  onMouseEnter={() => setActiveDetail(btn.id)}
-                  onMouseLeave={() => setActiveDetail("default")}
+                  onMouseEnter={() => { setActiveDetail(btn.id); setHoveredBtn(true); }}
+                  onMouseLeave={() => { setActiveDetail("default"); setHoveredBtn(false); }}
                 >
                   {btn.label}
                 </button>
               ))}
             </div>
 
-            <div id="dev" className={`experience-detail ${activeDetail === "dev" ? "active" : ""}`}>
-              As a <b>Software Developer Intern</b>, I worked on building and optimizing applications...
-            </div>
-            <div id="seo" className={`experience-detail ${activeDetail === "seo" ? "active" : ""}`}>
-              As an <b>SEO Specialist</b>, I improved website visibility...
-            </div>
-            <div id="blogger" className={`experience-detail ${activeDetail === "blogger" ? "active" : ""}`}>
-              As a <b>WordPress Blogger</b>, I created and managed SEO-optimized content...
-            </div>
-            <div id="wpdev" className={`experience-detail ${activeDetail === "wpdev" ? "active" : ""}`}>
-              As a <b>WordPress Developer Intern</b>, I assisted in developing and customizing websites...
-            </div>
-            <div id="fund" className={`experience-detail ${activeDetail === "fund" ? "active" : ""}`}>
-              As a <b>Fundraising Intern</b>, I supported fundraising campaigns...
-            </div>
-            <div id="video" className={`experience-detail ${activeDetail === "video" ? "active" : ""}`}>
-              As a <b>Video Editor Intern</b>, I edited videos using professional tools...
-            </div>
+            {/* Detail sections */}
+            {[
+              { id: "dev", text: "As a Software Developer Intern, I worked on building and optimizing applications..." },
+              { id: "seo", text: "As an SEO Specialist, I improved website visibility..." },
+              { id: "blogger", text: "As a WordPress Blogger, I created and managed SEO-optimized content..." },
+              { id: "wpdev", text: "As a WordPress Developer Intern, I assisted in developing and customizing websites..." },
+              { id: "fund", text: "As a Fundraising Intern, I supported fundraising campaigns..." },
+              { id: "video", text: "As a Video Editor Intern, I edited videos using professional tools..." },
+            ].map((exp) => (
+              <div key={exp.id} id={exp.id} className={`experience-detail ${activeDetail === exp.id ? "active" : ""}`}>
+                {exp.text}
+              </div>
+            ))}
 
-            {/* Default rotating quote */}
-            <div id="default" className={`experience-detail ${activeDetail === "default" ? "active" : ""}`}>
-              <p
-                id="quote"
-                style={{
-                  backgroundColor: colors[quoteIndex],
-                  transition: "opacity 0.5s, transform 0.5s",
-                }}
-              >
-                {quotes[quoteIndex]}
-              </p>
-            </div>
+            {/* Rotating quote hidden on hover */}
+            {!hoveredBtn && (
+              <div className="quote-box">
+                <p
+                  className={fade ? "fade" : ""}
+                  style={{
+                    backgroundColor: colors[quoteIndex],
+                    color: getContrastColor(colors[quoteIndex]),
+                    borderRadius: "8px",
+                    display: "inline-block",
+                    minWidth: "250px",
+                    textAlign: "center",
+                    fontSize: "24px",
+                    fontWeight: "600",
+                    lineHeight:"1",
+                    padding:"10px",
+                    transition: "all 0.25s ease",
+                  }}
+                >
+                  {quotes[quoteIndex]}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* === SKILLS === */}
+        {/* SKILLS */}
         <div className="div4">
           <div className="skill">
             <h1>skills</h1>
             <button className="button" onClick={popupContact_open}>
               <p className="button__text">
                 {"I Love Web Dev ❤️".split("").map((ch, idx) => (
-                  <span key={idx} style={{ "--index": idx }}>
-                    {ch}
-                  </span>
+                  <span key={idx} style={{ "--index": idx }}>{ch}</span>
                 ))}
               </p>
               <div className="button__circle">
                 <svg viewBox="0 0 14 15" fill="none" className="button__icon" width="14">
-                  <path
-                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg viewBox="0 0 14 15" fill="none" width="14" className="button__icon button__icon--copy">
-                  <path
-                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-                    fill="currentColor"
-                  />
+                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor"/>
                 </svg>
               </div>
             </button>
           </div>
 
-        <div className="sall" id="s1">HTML</div>
-        <div className="sall" id="s2">CSS</div>
-        <div className="sall" id="s3">JavaScript</div>
-        <div className="sall" id="s4">React</div>
-        <div className="sall" id="s5">Node.js</div>
-        <div className="sall" id="s6">Git</div>
-        <div className="sall" id="s7">SQL</div>
-        <div className="sall" id="s8">Figma</div>
-
-       
-
-
-            </div>
+          <div className="skillsgrid">
+            <div className="sall" id="s1">HTML</div>
+            <div className="sall" id="s2">CSS</div>
+            <div className="sall" id="s3">JavaScript</div>
+            <div className="sall" id="s4">React</div>
+            <div className="sall" id="s5">Node.js</div>
+            <div className="sall" id="s6">Git</div>
+            <div className="sall" id="s7">SQL</div>
+            <div className="sall" id="s8">Figma</div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -178,6 +178,12 @@ text-decoration-style: dashed ;
   transform: translate(-150%, 150%);
 }
 
+.button__icon,
+.button__icon--copy {
+  width: 20px;
+  height: 20px;
+}
+
 .button:hover {
   background: #000;
   transform: scale(1.05);
@@ -273,6 +279,9 @@ border-radius: 0 0 16px 16px;
       letter-spacing: 2px;
       z-index: 1;
 }
+.stripe p{
+  margin-left:430px;
+}
     .bg-text {
       position: absolute;
       inset: 0;
@@ -350,12 +359,27 @@ border: 1px dashed rgb(0, 0, 0);
   font-family: "Instrument Serif", serif;
 font-weight: 600;
     }
-
+.quote-box{
+  border: 2px dashed #296c00;
+      border-radius: 10px;
+      padding: 15px;
+      background: #ffe6f0;
+      line-height: 1.5;
+      min-height: 80px;
+      width: 80%;
+      margin-top: 10px;
+        margin: 10px auto; /* centers horizontally */
+  text-align: center; /* optional: centers text inside the box */
+  padding: 10px;
+  font-family: "Instrument Serif", serif;
+}
     .experience-detail.active {
       display: block;
     }
 
-
+    .phide{
+      display: none;
+    }
     /* ============================= */
 /* 📱 Mobile Responsive Styles   */
 /* ============================= */
@@ -394,24 +418,168 @@ font-weight: 600;
   }
 
   .skill {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     padding-left: 0;
     align-items: center;
   }
+  .skill h1 {
+    font-size: 70px;
+  }
 
   .button {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
+  .button__icon,
+.button__icon--copy {
+  width: 20px;
+  height: 20px;
+}
 
   .experience-detail {
     width: 100%;
     font-size: 16px;
   }
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centers children horizontally */
+  justify-content: center;   /* centers children vertically if height is set */
+  width: 90%;                /* container width */
+  margin: 0 auto;            /* centers container itself horizontally */
+  text-align: center;        /* optional: centers text inside */
+}
+
+.stripe{
+      top: -1px;
+      left: -10px;
+      width: 120%;
+      font-weight: 600;
+      font-family: "Instrument Serif", serif;
+      font-size: 0.8rem;
+      text-align: center;
+      transform: rotate(20deg); /* tilt stripe */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 1;
+}
+.stripe p{
+  margin-left: 150px;
+}
+    .bg-text {
+      font-size: 2.5rem;
+      transform: rotate(-20deg);
+      opacity: 20%;
+    }
+
+.sall {
+  font-size: 30px;
+  padding: 10px;
+}
+
+#star {
+  display: flex;
+  align-items: center;
+  padding-left: 1px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+#star img {
+  width: 50px;
+  height: auto;
+  z-index: 2;
+
+}
+#star h1{
+  font-size: 40px;
+  padding-left:  3px;
+  z-index: 2;
+}
+
+.bg-text {
+  opacity: 50%;
+}
+
+/*into box */
 
 
+  #cssportal-grid {
+	display: grid;
+	grid-template-rows: 1fr;
+	gap: 0;
+	width: 100%;
+	height: 100%;
 
+}
+
+#cdiv1 {
+    grid-row: 1 / 2;       /* start / end row */
+    grid-column: 1 / 4;    /* start / end column */
+            border-radius: 16px;
+                position: relative;
+  padding-top: 15px;
+                padding-left: 20px;
+padding-bottom: 10px;
+}
+
+
+#cdiv1 h1{
+  padding-bottom: 8px;
+}
+#cdiv2 {
+    grid-row: 1 / 2;       /* row start / row end */
+    grid-column: 3 / 7;    /* column start / column end */
+
+    position: relative;        
+  overflow: hidden;         
+text-align: center;
+}
+
+#cdiv2 img {
+  width: 280px;            
+  height: auto;
+  position: absolute;  
+bottom: 0px;
+left: 45px;
+  filter: drop-shadow(5px 0 0 white) 
+  drop-shadow(0 5px 0 white)
+  drop-shadow(-5px 0 0 white) 
+  drop-shadow(0 -5px 0 white);
+
+}
+
+
+#intro h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  font-style: normal;
+  font-size: 20px;
+    width: 100%;          /* full width of parent */
+    overflow: visible;    /* allow overflowing content */
+    white-space: nowrap;  /* optional: prevent text from wrapping */
+}
+
+#intro p {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+font-size: 10px;
+  color: white;
+  line-height: 1.6;
+}
+
+.mhide {
+  display: none;
+}
+.phide{
+  display: contents;
+}
+
+.quote-box{
+      width: 100%;
+}
 
 }
 
